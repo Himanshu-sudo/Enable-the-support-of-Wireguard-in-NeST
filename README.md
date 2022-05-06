@@ -20,5 +20,6 @@ Once decrypted, the plain-text packet is from 192.168.43.89. Is peer LMNOPQRS al
 If so, accept the packet on the interface. If not, drop it.
 Behind the scenes there is much happening to provide proper privacy, authenticity, and perfect forward secrecy, using state-of-the-art cryptography.
 
+# Step By Step Approach
 ## Step 1
 Created 2 network namespaces on Ubuntu machine (red , blue). We connected those 2 namespaces using virtual ethernet allowing the connectivity between two namespaces. Assigned the ip addresses. Then we created 2 wireguard interfaces (wg0 , wg1) in each network namespace. We assigned the ip addresses to each wireguard interface. We generated different private keys for each namespace and assigned those keys to each wireguard interface (wg0 , wg1). We generated the public keys for each namespace. We configured the interfaces (wg0 , wg1) exchanging the public keys generated on each namespace. We specified the endpoint ip addresses and their port numbers (interfaces were running on same machine but on different port numbers) for each namespace. We pinged from red namespace to blue namespace on the address of wireguard interface. The ping was successful.       
